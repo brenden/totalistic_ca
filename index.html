@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en">
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+                <title>Totalistic Cellular Automata</title>
+                <script type="text/javascript" src="jquery.js"></script>
+                <script type="text/javascript" src="util.js"></script>
+                <script type="text/javascript" src="board.js"></script>
+                <script type="text/javascript" src="automata.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+
+	</head>
+
+	<body>
+
+                <h1>Totalistic Cellular Automata</h1>
+
+		<a id="help-icon" href="#">?</a>
+
+              	<div id="information">
+			
+			<h2>Information</h2>
+                        <p>Totalistic cellular automata are a class of <a href="http://en.wikipedia.org/wiki/Cellular_automaton">cellular automata</a> whose next state is determined solely by the current state and the number of live cells in the neighborhood. Two values define every totalistic ruleset: the number of live neighbors required for a dead cell to become live, and the number required for a live cell to remain so. The B/S notation is commonly used to describe such rulesets. B3/S23 means that three live neighbors allow a dead cell to become live, and two or three live neighbors allow a live cell to persist. B3/S23 actually describes the famous Conway's Game of Life ruleset</p>
+
+                        <p>The shape of the surface on which the cellular automata live affects the system's outcome. Rectangles and tori are common choices, but more exotic, non-orientable surfaces such as Klein bottles can be used as well. By specifying the horizontal and vertical folds, many different surfaces can be created. For example, vertical:1, horizontal:0 yields an open cylinder; horizontal:1, vertical:-1 yields a Klein bottle.</p>
+		</div>
+
+		<div id="options">	
+
+                        <ul class="input">
+                                <li>
+                                        <strong>Dimensions</strong>
+                                        <br />
+                                        <label>rows:</label>
+                                        <input type="text" id="rows" size="5" value="40" />
+                                        <label>cols:</label>
+                                        <input type="text" id="cols" size="5" value="40" />
+                 
+                                </li> 
+                                <li>
+                                        <strong>Rules</strong>
+                                        <br />
+                                        <label>birth:</label>
+                                        <input type="text" id="birth" size="5" value="3" />
+                                        <label>survival:</label>
+                                        <input type="text" id="survival" size="5" value="23" />
+                                </li>
+                                <li>
+                                        <strong>Surface Fold</strong>
+                                        <br />
+                                        <label>horizontal:</label>
+                                        <select id="horizontal">
+                                                <option value="1">1</option>
+                                                <option value="0">0</option>
+                                                <option value="-1">-1</option> 
+                                        </select>
+                                        &nbsp;
+                                        <label>vertical:</label>
+                                        <select id="vertical">
+                                                <option value="1">1</option>
+                                                <option value="0">0</option>
+                                                <option value="-1">-1</option> 
+                                        </select>
+                                </li>
+
+                        </ul>
+
+                        <button id="init">Apply</button>
+                        <br />
+                        <div id="control"><button id="random">Random</button><button id="clear">Clear</button><button id="step">Step</button><button id="stop-go">&#10074; &#10074;</button></div> 
+		</div>
+
+                <canvas id="result" width="600" height="600"></canvas> 
+	</body>
+</html>
